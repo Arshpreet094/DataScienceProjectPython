@@ -43,6 +43,34 @@ data.to_csv('phone_usage_india.csv',index=False)
 
 #-------------------------------------------------------------------------
 
+#Removing the duplicate rows
+print("No. of dupicate rows: ",data.duplicated().sum())
+data=data.drop_duplicates()
+
+data.to_csv('phone_usage_india.csv',index=False)
+
+#---------------------------------------------------------------------------
+
+#Checking for Outliers using BoxPlot
+
+sns.set(style="whitegrid")
+
+plt.figure(figsize=(6, 5))
+sns.boxplot(y=data['Number of Apps Installed'], color='skyblue', width=0.3, linewidth=2, fliersize=6)
+plt.show()
+
+plt.figure(figsize=(6, 5))
+sns.boxplot(y=data['Calls Duration (mins/day)'], color='orange', width=0.3, linewidth=2, fliersize=6)
+plt.show()
+
+plt.figure(figsize=(6, 5))
+sns.boxplot(y=data['Screen Time (hrs/day)'], color='cyan', width=0.3, linewidth=2, fliersize=6)
+plt.show()
+
+#No Outliers found
+
+#----------------------------------------------------------------------------------
+
 
 
 
