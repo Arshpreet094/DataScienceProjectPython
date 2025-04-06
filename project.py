@@ -71,6 +71,19 @@ plt.show()
 
 #----------------------------------------------------------------------------------
 
+#Vizualising the relations
+
+#Plotting barchart for phone brands an no. of usuers
+print(data['Phone Brand'].unique())
+print(data.groupby('Phone Brand')['User ID'].count())
+plt.figure(figsize=(8,6))
+sns.barplot(data=data.groupby('Phone Brand')['User ID'].count(),palette='Set2')
+plt.title('Phone Brands used in India')
+plt.xticks(rotation=45)
+plt.xlabel('Phone Brands')
+plt.ylabel('No. of users')
+plt.show()
+
 
 
 
