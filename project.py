@@ -84,7 +84,15 @@ plt.xlabel('Phone Brands')
 plt.ylabel('No. of users')
 plt.show()
 
-
+#Plotting BarChart for checking primary use
+print(data['Primary Use'].unique())
+df=data.groupby('Primary Use')['User ID'].count()
+plt.figure(figsize=(8,6))
+sns.barplot(data=df,palette='pastel',width=0.5)
+plt.title("Primary Use of Mobile Phones")
+plt.xlabel("Uses")
+plt.ylabel("No. of users")
+plt.show()
 
 
 
