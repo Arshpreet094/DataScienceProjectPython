@@ -94,7 +94,42 @@ plt.xlabel("Uses")
 plt.ylabel("No. of users")
 plt.show()
 
+#Usage of phone on basis of gender PIE
+gend_stime=data.groupby('Gender')['User ID'].count()
+print("Avg Screen Time on the basis of Gender: ")
+print(gend_stime)
+plt.figure(figsize=(6,4))
+plt.pie(gend_stime,labels=['Female','Male','Other'],autopct='%1.2f%%')
+plt.title("Usage of Phone on the basis of gender")
+plt.show()
 
+#Mobile OS most preffered PIE
+df=data.groupby('OS')['User ID'].count()
+print("Mobile Phone OS")
+print(df)
+plt.figure(figsize=(6,4))
+plt.pie(df,labels=['Android','iOS'],autopct='%1.2f%%',startangle=140)
+plt.title("Mobile OS Used")
+plt.axis('equal')
+plt.show()
+
+#Histogram for find mobile usage of different age groups
+plt.figure(figsize=(8,6))
+sns.histplot(data['Age'],bins=10,color='orange',kde=True)
+plt.title("Phone usage for Age Groups")
+plt.ylabel('Frequence')
+plt.show()
+
+#Horizontal Bar for Avg data usage in dfferent Location
+plt.figure(figsize=(8,10))
+loct=data.groupby('Location')['Data Usage (GB/month)'].mean()
+plt.barh(data['Location'].unique(),loct,color=['skyblue','violet','cyan','orange','pink'])
+plt.title("Average Data Usage for Cities")
+plt.ylabel("Cities")
+plt.xlabel("Data Usage Gb/month")
+plt.show()
+
+#-----------------------------------------------------------------------------------------
 
 
 
