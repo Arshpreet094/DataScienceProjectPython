@@ -131,5 +131,33 @@ plt.show()
 
 #-----------------------------------------------------------------------------------------
 
+#Finding correlations using scatter charts and heatmaps
+
+#Scatter chart 1
+plt.figure(figsize=(8,6))
+sns.scatterplot(data=data,x='Screen Time (hrs/day)',y='Data Usage (GB/month)',alpha=0.7,color='red')
+plt.xscale('log')
+plt.yscale('log')
+plt.show()
+
+#Scatter chart 2
+plt.figure(figsize=(8,6))
+sns.scatterplot(data=data,x='Screen Time (hrs/day)',y='Calls Duration (mins/day)',alpha=0.7,color='green')
+plt.xscale('log')
+plt.yscale('log')
+plt.show()
+
+#Correlation Matrix using Heatmaps
+corr_matrix=data.corr(numeric_only=True)
+plt.figure(figsize=(5,3))
+sns.heatmap(corr_matrix,annot=True,cmap='Blues',fmt=".2f",linewidth=0.8)
+plt.xticks(fontsize=4,rotation=45)
+plt.yticks(fontsize=8)
+plt.title("Correlation Matrix")
+plt.show()
+
+
+#------------------------------------------------------------------------------------------------------
+
 
 
